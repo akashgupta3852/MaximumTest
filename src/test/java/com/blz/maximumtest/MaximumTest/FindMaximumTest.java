@@ -45,4 +45,26 @@ public class FindMaximumTest {
 		Double max = findMaximum.getMaximum(6.87, 5.13, 9.71);
 		Assert.assertEquals(9.71, max, .01);
 	}
+
+	@Test
+	public void givenMaximumStringAtPosition1_ShouldReturnStringOfPosition1() {
+		FindMaximum findMaximum = new FindMaximum();
+		String max = findMaximum.getMaximum("Manali", "Akash", "Abhsihek");
+		Assert.assertEquals("Manali", max);
+	}
+
+	@Test
+	public void givenMaximumStringAtPosition2_ShouldReturnStringOfPosition2() {
+		FindMaximum findMaximum = new FindMaximum();
+		String max = findMaximum.getMaximum("Golu", "Ramesh", "Mahesh");
+		Assert.assertEquals("Ramesh", max);
+	}
+
+	@Test
+	public void givenMaximumStringAtPosition3_ShouldReturnStringOfPosition3() {
+		FindMaximum findMaximum = new FindMaximum();
+		String max = findMaximum.getMaximum("Pooja", "Ramesh", "Suresh");
+		Assert.assertEquals("Suresh", max);
+	}
+
 }
