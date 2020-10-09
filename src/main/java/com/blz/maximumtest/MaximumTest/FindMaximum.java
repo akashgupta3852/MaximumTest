@@ -1,24 +1,38 @@
 package com.blz.maximumtest.MaximumTest;
 
 public class FindMaximum<T extends Comparable<T>> {
-	private T x, y, z;
+	private T x, y, z, elements[];
 
-	public FindMaximum(T x, T y, T z) {
+	@SafeVarargs
+	public FindMaximum(T x, T y, T z, T... elements) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.elements = elements;
 	}
 
 	public T getMaximum() {
-		return getMaximum(x, y, z);
+		return getMaximum(x, y, z, elements);
 	}
 
-	public static <T extends Comparable<T>> T getMaximum(T a, T b, T c) {
+	@SafeVarargs
+	public static <T extends Comparable<T>> T getMaximum(T a, T b, T c, T... elements) {
 		T max = a;
 		if (b.compareTo(max) > 0)
 			max = b;
 		if (c.compareTo(max) > 0)
 			max = c;
+		if (elements.length != 0)
+			max = findWithOptional(max, elements);
+		return max;
+	}
+
+	@SafeVarargs
+	private static <T extends Comparable<T>> T findWithOptional(T max, T... elements) {
+		for (T element : elements) {
+			if (element.compareTo(max) > 0)
+				max = element;
+		}
 		return max;
 	}
 
