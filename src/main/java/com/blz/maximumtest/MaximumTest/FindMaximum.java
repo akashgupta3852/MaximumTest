@@ -24,7 +24,15 @@ public class FindMaximum<T extends Comparable<T>> {
 			max = c;
 		if (elements.length != 0)
 			max = findWithOptional(max, elements);
+		printMax(a, b, c, elements, max);
 		return max;
+	}
+
+	private static <T extends Comparable<T>> void printMax(T a, T b, T c, T[] elements, T max) {
+		String print = "The maximum value of " + a + ", " + b + ", " + c;
+		for (T element : elements)
+			print = print + ", " + element;
+		System.out.println(print + " is " + max + ".");
 	}
 
 	@SafeVarargs
